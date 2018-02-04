@@ -7,7 +7,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="verifyContactsLabel"/>
+          <include name="createNewContactTest"/>
         </methods>
       </class> <!-- com.freecrm.tests.ContactsPageTest -->
     </classes>

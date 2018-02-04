@@ -30,11 +30,19 @@ public class ContactsPageTest extends TestBase{
 		objContactsPage=objHomePage.clickOnContacts();
 	}
 	
-	@Test
+	//@Test
 	public void verifyContactsLabel() {
 		boolean flag=objContactsPage.verifyContactsLabel();
 		Assert.assertTrue(flag);
 	}
+	
+	@Test
+	public void createNewContactTest() {
+		objHomePage.clickOnNewContact();
+		objContactsPage.createNewContact("Mr.", "Maddy", "Bharadwaj", "HCL");
+		
+	}
+	
 	
 	
 	@AfterMethod
