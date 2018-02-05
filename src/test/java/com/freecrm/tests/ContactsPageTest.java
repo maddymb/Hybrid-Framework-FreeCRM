@@ -3,6 +3,7 @@ package com.freecrm.tests;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.freecrm.base.TestBase;
@@ -16,7 +17,7 @@ public class ContactsPageTest extends TestBase{
 	LoginPage objLoginPage;
 	HomePage objHomePage;
 	ContactsPage objContactsPage;
-	
+	String sheetName = "contacts";
 	public ContactsPageTest() {
 		super();
 	}
@@ -30,16 +31,24 @@ public class ContactsPageTest extends TestBase{
 		objContactsPage=objHomePage.clickOnContacts();
 	}
 	
-	//@Test
+	@Test
 	public void verifyContactsLabel() {
 		boolean flag=objContactsPage.verifyContactsLabel();
 		Assert.assertTrue(flag);
 	}
 	
-	@Test
-	public void createNewContactTest() {
+	@DataProvider(name="TestData")
+	public Object[][] getTestData() {
+		Object data[][]=TestUtil.getTestData(sheetName);
+		return data;
+	}
+	
+	
+	@Test(dataProvider="TestData")
+	public void createNewContactTest(String Title_Value, String name,String surname,String cmpny) {
 		objHomePage.clickOnNewContact();
-		objContactsPage.createNewContact("Mr.", "Maddy", "Bharadwaj", "HCL");
+		//objContactsPage.createNewContact("Mr.", "Maddy", "Bharadwaj", "HCL");
+		objContactsPage.createNewContact(Title_Value, name, surname, cmpny);
 		
 	}
 	

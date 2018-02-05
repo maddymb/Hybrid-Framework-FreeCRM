@@ -9,14 +9,18 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import com.freecrm.util.TestUtil;
+import com.freecrm.util.WebEventListener;
 
 public class TestBase {
 
 	
 	public static WebDriver driver;
 	public static Properties prop;
+	public  static EventFiringWebDriver e_driver;
+	public static WebEventListener eventListener;
 	
 	//Constructor of the class for loading the properties file
 	public TestBase() {	
@@ -50,6 +54,13 @@ public class TestBase {
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/src/main/java/com/freecrm/drivers/gekodriver");
 			driver=new FirefoxDriver();	
 		}	
+		
+		e_driver = new EventFiringWebDriver(driver);
+		// Now create object of EventListerHandler to register it with EventFiringWebDriver
+		eventListener = new WebEventListener();
+		e_driver.register(eventListener);
+		driver = e_driver;
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIME,TimeUnit.SECONDS);

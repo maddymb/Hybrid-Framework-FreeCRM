@@ -1,6 +1,7 @@
 package com.freecrm.pages;
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -10,6 +11,7 @@ import com.freecrm.base.TestBase;
 public class ContactsPage extends TestBase{
 	
 	@FindBy(xpath="//td[contains(text(),'Contacts')]")
+	@CacheLookup // it will store the element in memory and will every time wont go for the xpath
 	WebElement lblContacts;
 	
 	@FindBy(name="title")
