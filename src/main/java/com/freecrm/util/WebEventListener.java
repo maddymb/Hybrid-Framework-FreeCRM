@@ -1,5 +1,4 @@
 package com.freecrm.util;
-
 /*************************************** PURPOSE **********************************
  - This class implements the WebDriverEventListener, which is included under events.
  The purpose of implementing this interface is to override all the methods and define certain useful  Log statements 
@@ -61,7 +60,14 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
 		System.out.println("Navigated forward to next page");
 	}
 
-	
+	public void onException(Throwable error, WebDriver driver) {
+		System.out.println("Exception occured: " + error);
+		try {
+			TestUtil.takeScreenshotAtEndOfTest();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void beforeFindBy(By by, WebElement element, WebDriver driver) {
 		System.out.println("Trying to find Element By : " + by.toString());
@@ -118,11 +124,6 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
 	public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
 		// TODO Auto-generated method stub
 
-	}
-
-	public void onException(Throwable arg0, WebDriver arg1) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

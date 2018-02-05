@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.freecrm.tests.ContactsPageTest">
+      <class name="com.freecrm.tests.LoginPageTest">
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="createNewContactTest"/>
+          <include name="loginTest"/>
         </methods>
-      </class> <!-- com.freecrm.tests.ContactsPageTest -->
+      </class> <!-- com.freecrm.tests.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
