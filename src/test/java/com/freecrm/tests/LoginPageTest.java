@@ -1,5 +1,7 @@
 package com.freecrm.tests;
 
+
+import org.apache.log4j.Logger;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -7,6 +9,8 @@ import org.testng.annotations.Test;
 
 import com.freecrm.base.TestBase;
 import com.freecrm.pages.LoginPage;
+
+
 
 public class LoginPageTest extends TestBase {
 
@@ -17,15 +21,21 @@ public class LoginPageTest extends TestBase {
 		super();
 	}
 	
+	Logger log=Logger.getLogger(LoginPageTest.class);
 	//before method for initialization and creating object of LoginPage
 	@BeforeMethod
 	public void setUp() {
+		log.info("initialoization");
 		initialization();
 		objLoginpage= new LoginPage();
+		log.warn("warning");
+		log.fatal("fatal");
 		
 	}
 	
 	//Test case validating Title of Web Page
+	//	@Test(priority=1,retryAnalyzer=com.freecrm.analyzer.RetryAnalyzer.class) Retry Analyzer At Test Level
+	
 	@Test(priority=1)
 	public void titleTest() {
 		String ActualTitle=objLoginpage.validateTitle();
@@ -50,6 +60,8 @@ public class LoginPageTest extends TestBase {
 		Assert.assertEquals(title, "CRMPRO");
 		
 	}
+	
+	
 	
 	// For closing and Quitting the Browser
 	@AfterMethod

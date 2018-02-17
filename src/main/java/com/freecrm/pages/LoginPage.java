@@ -1,11 +1,11 @@
 package com.freecrm.pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.freecrm.base.TestBase;
+import com.freecrm.util.JavaScriptExecutorUtility;
 
 public class LoginPage extends TestBase {
 
@@ -37,19 +37,26 @@ public class LoginPage extends TestBase {
 	
 	// This Method will return the Boolean Value for the Logo
 	public boolean validateLogo() {	
+		JavaScriptExecutorUtility.flash(freecrmLogo, driver);
 		return freecrmLogo.isDisplayed();
 	}
 	
 	
 	//This Method will perform the Login Action
 	public HomePage login(String uname,String pass) {
+		
+		JavaScriptExecutorUtility.flash(username, driver);		
 		username.clear();
 		username.sendKeys(uname);
+		JavaScriptExecutorUtility.drawBorder(username, driver);
+		
+		JavaScriptExecutorUtility.flash(password, driver);
 		password.clear();
-		password.sendKeys(pass);		
+		password.sendKeys(pass);	
+		
 		//loginButton.click();
-		JavascriptExecutor js = (JavascriptExecutor)driver;
-		js.executeScript("arguments[0].click();", loginButton);
+		JavaScriptExecutorUtility.flash(loginButton, driver);
+		JavaScriptExecutorUtility.clickElement(loginButton, driver);
 		return new HomePage();
 	}
 	

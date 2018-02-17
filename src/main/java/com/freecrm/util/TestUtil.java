@@ -14,6 +14,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import com.freecrm.base.TestBase;
 
+
 public class TestUtil extends TestBase {
 
 	public static long PAGE_LOAD_TIME=20;
@@ -54,6 +55,7 @@ public class TestUtil extends TestBase {
 		return data;
 	}
 	
+
 	public static void takeScreenshotAtEndOfTest() throws IOException {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		String currentDir = System.getProperty("user.dir");
