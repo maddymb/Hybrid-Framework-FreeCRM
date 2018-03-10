@@ -44,7 +44,7 @@ public class LoginPage extends TestBase {
 	
 	//This Method will perform the Login Action
 	public HomePage login(String uname,String pass) {
-		
+		System.err.println(driver);
 		JavaScriptExecutorUtility.flash(username, driver);		
 		username.clear();
 		username.sendKeys(uname);

@@ -44,14 +44,16 @@ public class TestBase {
 	//This Method is used for defining the browser and other properties
 	public static void initialization () {
 		String BrowserName=prop.getProperty("browser");
+		
 		if(BrowserName.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", "/Users/maddy/Downloads/chromedriver");
-			//System.setProperty(prop.getProperty("ChromePathKey") ,prop.getProperty("ChromePathValue"));
+			//System.setProperty("webdriver.chrome.driver", "/Users/maddy/Downloads/chromedriver");
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"/src/main/java/com/freecrm/drivers/chromedriver");
 			driver=new ChromeDriver();	
 		}
 		
 		else if(BrowserName.equals("firefox")) {
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/src/main/java/com/freecrm/drivers/gekodriver");
+			System.setProperty("webdriver.gecko.driver", "/Users/maddy/Downloads/geckodriver");
+			//System.setProperty("webdriver.firefox.marionette", System.getProperty("user.dir")+ "/src/main/java/com/freecrm/drivers/gekodriver");
 			driver=new FirefoxDriver();	
 		}	
 		

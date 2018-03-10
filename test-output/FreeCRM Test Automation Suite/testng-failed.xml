@@ -7,11 +7,27 @@
   </listeners>
   <test name="FreeCRM Test Cases(failed)">
     <classes>
+      <class name="com.freecrm.tests.HomePageTest">
+        <methods>
+          <include name="logoTest"/>
+          <include name="verifyContactLinkTest"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.freecrm.tests.HomePageTest -->
+      <class name="com.freecrm.tests.ContactsPageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verifyContactsLabel"/>
+          <include name="createNewContactTest"/>
+        </methods>
+      </class> <!-- com.freecrm.tests.ContactsPageTest -->
       <class name="com.freecrm.tests.LoginPageTest">
         <methods>
           <include name="tearDown"/>
-          <include name="titleTest"/>
           <include name="setUp"/>
+          <include name="loginTest"/>
         </methods>
       </class> <!-- com.freecrm.tests.LoginPageTest -->
     </classes>

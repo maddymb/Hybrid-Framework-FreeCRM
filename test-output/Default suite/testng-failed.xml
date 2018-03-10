@@ -6,8 +6,8 @@
       <class name="com.freecrm.tests.LoginPageTest">
         <methods>
           <include name="tearDown"/>
-          <include name="titleTest"/>
           <include name="setUp"/>
+          <include name="loginTest"/>
         </methods>
       </class> <!-- com.freecrm.tests.LoginPageTest -->
     </classes>

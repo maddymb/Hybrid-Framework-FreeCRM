@@ -55,6 +55,7 @@ public class LoginPageTest extends TestBase {
 	//Test Case for Validating Login Functionality 
 	@Test(priority=3)
 	public void loginTest() throws InterruptedException {
+		//System.err.println("driver"+driver);
 		objLoginpage.login(prop.getProperty("username"),prop.getProperty("password"));
 		String title=driver.getTitle();
 		Assert.assertEquals(title, "CRMPRO");
@@ -67,7 +68,7 @@ public class LoginPageTest extends TestBase {
 	@AfterMethod
 	public void tearDown() {
 		driver.close();
-		driver.quit();	
+		//driver.quit();	
 	}
 	
 	

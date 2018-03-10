@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [FreeCRM Test Automation Suite]" guice-stage="DEVELOPMENT">
-  <listeners>
-    <listener class-name="com.freecrm.extentreport.ExtentReportListener"/>
-    <listener class-name="com.freecrm.analyzer.RetryTransformer"/>
-  </listeners>
-  <test name="FreeCRM Test Cases(failed)">
+<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <test name="Default test(failed)">
     <classes>
       <class name="com.freecrm.tests.LoginPageTest">
         <methods>
           <include name="tearDown"/>
-          <include name="titleTest"/>
           <include name="setUp"/>
+          <include name="loginTest"/>
         </methods>
       </class> <!-- com.freecrm.tests.LoginPageTest -->
     </classes>
-  </test> <!-- FreeCRM Test Cases(failed) -->
-</suite> <!-- Failed suite [FreeCRM Test Automation Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
